@@ -1,15 +1,15 @@
 package com.springboot.app01;
 
-import org.springframework.beans.factory.annotation.Autowired; // Injects dependencies automatically
-import org.springframework.stereotype.Component; // Marks this class as a Spring-managed component (bean)
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-@Component // Registers this class as a Spring bean
+@Component
 public class Dev {
 
-    private final Laptop laptop;
+    private Laptop laptop;
 
-    @Autowired  // Not required from Spring 4.3+ if only one constructor is present
-    public Dev(Laptop laptop) {
+    @Autowired // Injects the Laptop bean via the setter method
+    public void setLaptop(Laptop laptop) {
         this.laptop = laptop;
     }
 
