@@ -6,11 +6,15 @@ import org.springframework.stereotype.Component; // Marks this class as a Spring
 @Component // Registers this class as a Spring bean
 public class Dev {
 
-    @Autowired // Automatically injects an instance of Laptop into this class
-    private Laptop laptop;
+    private final Laptop laptop;
+
+    @Autowired  // Not required from Spring 4.3+ if only one constructor is present
+    public Dev(Laptop laptop) {
+        this.laptop = laptop;
+    }
 
     public void build() {
-        laptop.compile(); // Calls the compile method of Laptop
+        laptop.compile();
         System.out.println("Building something!");
     }
 }
