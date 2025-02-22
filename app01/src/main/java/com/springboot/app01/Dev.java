@@ -1,18 +1,16 @@
-// Defines the package where this class is located
 package com.springboot.app01;
 
-// Importing necessary Spring annotations
+import org.springframework.beans.factory.annotation.Autowired; // Injects dependencies automatically
 import org.springframework.stereotype.Component; // Marks this class as a Spring-managed component (bean)
 
-// @Component annotation tells Spring Boot to register this class as a bean in the application context
-@Component
+@Component // Registers this class as a Spring bean
 public class Dev {
 
-    Laptop laptop = new Laptop();
+    @Autowired // Automatically injects an instance of Laptop into this class
+    private Laptop laptop;
 
-    // A simple method that prints a message when invoked
     public void build() {
-        laptop.compile();
+        laptop.compile(); // Calls the compile method of Laptop
         System.out.println("Building something!");
     }
 }
