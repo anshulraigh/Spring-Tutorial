@@ -8,8 +8,11 @@ import org.springframework.stereotype.Component; // Marks this class as a Spring
 @Component
 public class Dev {
 
+    Laptop laptop = new Laptop();
+
     // A simple method that prints a message when invoked
     public void build() {
+        laptop.compile();
         System.out.println("Building something!");
     }
 }
